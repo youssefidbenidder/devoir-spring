@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/styleAdmin.css">
+    <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
+    <title>Produits</title>
+</head>
+<body class="home">
+<div class="container">
+
+    <div class="panel panel-default my-5">
+        <div class="panel-heading"><h2>The product has been successfully added</h2></div>
+        <div class="panel-body">
+            <label><h4>Prodcut Name :</h4></label>
+            <label th:text="${produit.nom}"></label>
+        </div>
+        <div class="panel-body">
+            <label><h4>Description :</h4></label>
+            <label th:text="${produit.description}"></label>
+        </div>
+        <div class="panel-body">
+            <label><h4>Prodcut Price :</h4></label>
+            <label th:text="${produit.prix}"></label>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

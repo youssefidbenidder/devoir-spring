@@ -1,0 +1,48 @@
+body {
+    background-image: url("../images/background1.jpg");
+    background-size: auto;
+}
+
+.card-signin {
+    border: 1px;
+    border-radius: 1rem;
+    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.card-signin .card-title {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+    padding: 2rem;
+}
+
+.form-signin {
+    width: 100%;
+}
+
+.form-signin .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.2s;
+}
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-label-group input {
+    height: auto;
+    border-radius: 2rem;
+}
+
+.description{
+    font-size: 2rem;
+    color: white
+}

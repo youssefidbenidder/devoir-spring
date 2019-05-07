@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/static/images/icon.png"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/styles/styleLogin.css}"/>
+    <title>Login</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-4">
+                <div class="card-body">
+                    <img class="icon" src="/static/images/icon.png"/>
+                    <h3 class="card-title text-center">Sign in to We-Shop</h3>
+                    <form class="form-signin" method="post" action="">
+                        <div class="form-label-group">
+                            <label for="inputUsername">Username</label>
+                            <input type="type" name="email" id="inputUsername" class="form-control"
+                                   placeholder="Username" required autofocus>
+                        </div>
+
+                        <div class="form-label-group">
+                            <label for="inputPassword">Password
+                            </label>
+                            <input type="password" name="password" id="inputPassword" class="form-control"
+                                   placeholder="Password" required>
+                            <span class="alert-danger bg-light small">
+
+                            </span>
+                        </div>
+
+                        <div class="custom-control custom-checkbox mb-3">
+                            <a class="label-link" href="#">Forgot password?</a>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                        <hr class="my-4">
+                        <a class="d-block text-center mt-2 small" href="/register">Sign Up</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

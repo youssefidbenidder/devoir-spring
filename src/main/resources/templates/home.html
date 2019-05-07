@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/static/images/icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles/styleHome.css">
+    <title>Home</title>
+</head>
+<body>
+<nav class=" navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="/static/images/icon.png" width="40px" height="40px" alt=""/>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">WeMusic <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <div sec:authorize="isAuthenticated()">
+                <form class="form-inline" method="post" th:action="@{logout}">
+                        <a class="btn btn-danger my-2 mr-1 " th:href="@{cart}">
+                            Panier
+                        </a>
+                    <button class="btn btn-primary my-2 mr-1 " type="submit">logOut</button>
+                </form>
+            </div>
+            <div sec:authorize="!isAuthenticated()">
+                <form class="form-inline" method="post" th:action="@{login}">
+                    <button class="btn btn-primary my-2 mr-1 " type="submit">logIn</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div id="main" class="row ml-3 my-2">
+    <div class="column col-lg-12 container">
+        <div th:each="p:${listProduits}" class="card col-lg-3 column mx-3 my-5">
+            <div class="container">
+                <h2 th:text="${p.nom}">
+                </h2>
+                <p th:text="${p.description}" class="title">
+                </p>
+                <h4 th:text="${p.prix}"></h4>
+                <p>
+                <form method="post" th:action="@{/addCart}" th:object="${p}">
+                    <input type="hidden" th:value="${p.nom}" name="nom"/>
+                    <input type="hidden" th:value="${p.description}" name="description"/>
+                    <input type="hidden" th:value="${p.prix}" name="prix"/>
+                    <input type="hidden" th:value="${p.id}" name="id"/>
+                    <button class="button" type="submit">Add to Chart</button>
+                </form>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="float: none; margin: 0 auto;">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination my-4">
+                <li th:class="${currentPage}==${status.index}?'page-item active':'page-item'"
+                    th:each="pa,status:${pagesLentgh}">
+                    <a th:href="@{home(page=${status.index})}" th:text="${status.index}" class="page-link"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+</html>

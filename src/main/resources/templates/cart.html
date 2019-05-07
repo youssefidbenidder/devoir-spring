@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/static/images/icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles/styleAdmin.css">
+    <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
+    <title>Produits</title>
+</head>
+<body class="home">
+<div class="container">
+    <h1>Shopping Cart</h1>
+    <div class="card mt-5">
+        <div class="card-block">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th class="text-center">Product Name</th>
+                    <th class="hidden-xs w-15 text-center">Price</th>
+                    <th class="hidden-xs w-15 text-center">
+                        Quantité
+                    </th>
+                    <th class="text-center" style="width: 100px;">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p:${items}">
+                    <td class="text-center" th:text="${p.produit.nom}"></td>
+                    <td class="text-center" th:text="${p.produit.prix}"></td>
+                    <td class="text-center"  >
+                        <input type="number" min="1" th:value="${p.quantite}" />
+                    </td>
+                    <td class="text-center" ><button class="btn btn-xs btn-default" type="button" data-toggle="tooltip"
+                                                     title="Remove product">
+                        <a th:object="${p}" th:href="@{/deleteItem(id=${p.id.produitId})}">
+                            <ion-icon name="close"></ion-icon>
+                        </a>
+                    </button></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

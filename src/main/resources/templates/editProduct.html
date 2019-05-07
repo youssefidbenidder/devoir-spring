@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/static/images/icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/styleAdmin.css">
+    <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
+    <title>Produits</title>
+</head>
+<body class="home">
+<nav class=" navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="main-navbar mr-5">
+        <a class="navbar-brand w-100 ml-5" href="#"> AdminPage </a>
+    </div>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="icon.png" width="40px" height="40px" alt=""/>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">We-Shop<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <button class="btn btn-warning my-2 mr-1 " type="submit">Log out</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="wrapper">
+    <div class="container">
+        <form th:action="@{/admin/saveProduct}" method="post">
+            <input type="hidden" id="idProduct" th:value="${produit.id}" name="id">
+            <input type="text" class="form-control my-3 col-lg-3" placeholder="Product Name" id="productName"
+                   name="nom" th:value="${produit.nom}">
+            <textarea type="text" class="form-control my-3 col-lg-6" placeholder="Description"
+                      name="description" th:text="${produit.description}" rows="7"></textarea>
+            <input type="text" class="form-control my-3 col-lg-3" placeholder="0.99$" name="prix" th:value="${produit.prix}">
+            <input type="submit" value="Update Product" class="btn btn-primary"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
