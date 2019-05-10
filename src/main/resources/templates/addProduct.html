@@ -17,7 +17,7 @@
 <body class="home">
 <nav class=" navbar navbar-expand-lg navbar-dark bg-info">
     <div class="main-navbar mr-5">
-        <a class="navbar-brand w-100 ml-5" href="#"> AdminPage </a>
+        <a class="navbar-brand w-100 ml-5" href=""> AdminPage </a>
     </div>
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -30,7 +30,7 @@
                     <a class="nav-link" href="#">We-Shop<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <form class="form-inline">
+            <form class="form-inline" th:action="@{/logout}">
                 <button class="btn btn-warning my-2 mr-1 " type="submit">Log out</button>
             </form>
         </div>
@@ -39,11 +39,10 @@
 <div class="wrapper">
     <div class="container">
         <form th:action="@{/admin/saveProduct}" method="post">
-            <input type="text" class="form-control my-3 col-lg-3" placeholder="Product Name" id="productName"
-                   name="nom">
-            <textarea type="text" class="form-control my-3 col-lg-3" placeholder="Description"
-                      name="description"></textarea>
-            <input type="text" class="form-control my-3 col-lg-3" placeholder="0.99$" name="prix">
+            <input type="text" class="form-control my-3 col-lg-3" placeholder="Product Name" id="productName" name="nom" >
+            <textarea type="text" class="form-control my-3 col-lg-6" placeholder="Description"
+                      name="description"  rows="7"></textarea>
+            <input type="text" class="form-control my-3 col-lg-3" placeholder="0.99$" name="prix" >
             <input type="submit" value="Add Product" class="btn btn-primary"/>
         </form>
     </div>

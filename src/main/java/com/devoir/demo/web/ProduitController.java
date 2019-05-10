@@ -59,7 +59,7 @@ public class ProduitController {
     public String delete(@RequestParam(name = "id") Long id,
                          @RequestParam(name = "page", defaultValue = "0") int page) {
         produitRepository.deleteById(id);
-        return "redirect:/admin?page=" + page;
+        return "redirect:/admin/home?page=" + page;
     }
 
     @RequestMapping(value = "/edit")

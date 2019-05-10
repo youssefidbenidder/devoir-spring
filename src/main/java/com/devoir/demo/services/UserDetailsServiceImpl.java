@@ -1,4 +1,4 @@
-package com.devoir.demo;
+package com.devoir.demo.services;
 
 import com.devoir.demo.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

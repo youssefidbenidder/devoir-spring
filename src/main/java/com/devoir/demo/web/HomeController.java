@@ -59,6 +59,17 @@ public class HomeController {
 
     @RequestMapping(value = "/addCart", method = RequestMethod.POST)
     public String addCart(@ModelAttribute("p") Produit p , HttpSession session) {
+        if(session.getAttribute("client") == null){
+            Client client1;
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            if (principal instanceof UserDetails) {
+                client1 = clientRepository.findByUser((User) principal);
+                session.setAttribute("client", client1);
+            } else {
+                String username = principal.toString();
+                System.out.println(username + " Principal");
+            }
+        }
 
         Client client = (Client) session.getAttribute("client");
         Panier panier = client.getPanier();

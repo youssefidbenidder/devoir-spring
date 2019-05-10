@@ -1,4 +1,4 @@
-package com.devoir.demo.web;
+package com.devoir.demo.config;
 
 import com.devoir.demo.dao.*;
 import com.devoir.demo.entities.*;

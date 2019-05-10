@@ -30,7 +30,7 @@
                     <a class="nav-link" href="/home">We-Shop<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <form class="form-inline">
+            <form class="form-inline" th:action="@{/logout}">
                 <button class="btn btn-warning my-2 mr-1 " type="submit">Log out</button>
             </form>
         </div>
@@ -38,7 +38,7 @@
 </nav>
 
 <div class="container">
-    <a href="/addProduct" class="btn btn-primary my-3">Add Product</a>
+    <a th:href="@{/admin/addProduct}" class="btn btn-primary my-3">Add Product</a>
     <form th:action="@{/admin/search}" method="get">
         <label>Product Name</label>
         <input type="text" name="name"/>
@@ -89,7 +89,7 @@
             <ul class="pagination my-4">
                 <li th:class="${currentPage}==${status.index}?'page-item active':'page-item'"
                     th:each="pa,status:${pagesLentgh}">
-                    <a th:href="@{admin(page=${status.index})}" th:text="${status.index}" class="page-link"></a>
+                    <a th:href="@{home(page=${status.index})}" th:text="${status.index}" class="page-link"></a>
                 </li>
             </ul>
         </nav>

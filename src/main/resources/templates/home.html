@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">WeMusic <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">WeShop <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <div sec:authorize="isAuthenticated()">
@@ -52,7 +52,7 @@
                 </h2>
                 <p th:text="${p.description}" class="title">
                 </p>
-                <h4 th:text="${p.prix}"></h4>
+                <h4 th:text="${p.prix} + MAD"></h4>
                 <p>
                 <form method="post" th:action="@{/addCart}" th:object="${p}">
                     <input type="hidden" th:value="${p.nom}" name="nom"/>

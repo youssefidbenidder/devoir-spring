@@ -1,5 +1,6 @@
-package com.devoir.demo;
+package com.devoir.demo.config;
 
+import com.devoir.demo.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
